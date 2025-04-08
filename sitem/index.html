@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yiğit'in Portföyü</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Yiğit'in Portföyü</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">Hakkımda</a></li>
+                    <li><a href="#projects">Projeler</a></li>
+                    <li><a href="#contact">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>Hakkımda</h2>
+            <p>Merhaba! Ben Yiğit, etik hackerlik ile uğraşıyorum aynı zamanda bir yazılım geliştiricisiyim. Web ve oyun geliştirme konusunda deneyimliyim.</p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projelerim</h2>
+            <div class="project">
+                <h3>Oyun Projem</h3>
+                <img src="oyun2.PNG" alt="Oyun Projem">
+                <p>Bu proje Unity ile yaptığım Overcooked tarzı bir oyunumdur.</p>
+            </div>
+            <div class="project">
+                <h3>Proje 2</h3>
+                <img src="proje1.png" alt="Proje 2">
+                <p>Bu proje Python ile yaptığım otomatik IP değiştirme tooludur.</p>
+            </div>
+            <div class="project">
+                <h3>Proje 3</h3>
+                <img src="oyun3.PNG" alt="Proje 3">
+                <p>Bu proje Unity ile yaptığım 2D ok oyunumdur.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>İletişim</h2>
+            <form id="contactForm">
+                <input type="text" name="user_name" placeholder="Adınız" required>
+                <input type="email" name="user_email" placeholder="E-posta" required>
+                <textarea name="message" placeholder="Mesajınız" required></textarea>
+                <button type="submit">Gönder</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Yiğit. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <!-- EmailJS Script -->
+    <script type="text/javascript">
+        // EmailJS'i başlat
+        emailjs.init('YOUR_USER_ID'); // Burada kendi EmailJS User ID'nizi kullanın
+
+        // Form submit eventini dinle
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Sayfa yenilenmesini engelle
+
+            // Form verilerini EmailJS'e gönder
+            emailjs.sendForm('service_5la9ixe', '__ejs-test-mail-service__', this)
+                .then(function(response) {
+                    alert('Mesajınız başarıyla gönderildi!');
+                }, function(error) {
+                    alert('Mesaj gönderilemedi: ' + error.text);
+                });
+        });
+    </script>
+</body>
+</html>
